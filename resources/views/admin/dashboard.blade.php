@@ -16,8 +16,8 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
-                    {{ __('Benvenuto', $data) }}
+                    var_dump($data);
+                    {{ __('Benvenuto',) }}
                     
 
                 </div>

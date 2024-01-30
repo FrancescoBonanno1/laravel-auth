@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AutenticationModel;
 use App\Http\Requests\StoreAutenticationModelRequest;
 use App\Http\Requests\UpdateAutenticationModelRequest;
+use SebastianBergmann\CodeCoverage\Report\Xml\Tests;
 
 class AutenticationModelController extends Controller
 {
@@ -14,7 +15,8 @@ class AutenticationModelController extends Controller
      */
     public function index()
     {
-        //
+        $data = AutenticationModel::all();
+        return view('admin.dashboard', compact("data"));
     }
 
     /**

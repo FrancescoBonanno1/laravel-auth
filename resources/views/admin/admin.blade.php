@@ -14,7 +14,12 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Benvenuto') }}
+                    @foreach ($data as $item)
+                        <h1>{{$item['name']}}</h1>
+                    @endforeach
+
+                    
                 </div>
             </div>
         </div>

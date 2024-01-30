@@ -17,7 +17,9 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Benvenuto', $data) }}
+                    
+
                 </div>
             </div>
         </div>

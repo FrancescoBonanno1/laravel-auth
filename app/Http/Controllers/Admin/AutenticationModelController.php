@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller; 
 use App\Models\AutenticationModel;
 use App\Http\Requests\StoreAutenticationModelRequest;
 use App\Http\Requests\UpdateAutenticationModelRequest;

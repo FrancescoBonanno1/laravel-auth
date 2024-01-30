@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -16,8 +17,9 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    var_dump($data);
-                    {{ __('Benvenuto',) }}
+                   
+                  {{-- @foreach ($projects as $progetto)
+                      {{$progetto->name}}                  @endforeach --}}
                     
 
                 </div>

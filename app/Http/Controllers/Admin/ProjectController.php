@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectRequest;
+
 
 class ProjectController extends Controller
 {
@@ -22,17 +24,23 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        //
-    }
+        $validati = $request->validated();
 
+        $newProject = new Project();
+        $newProject->fill($validati);
+        $newProject->save();
+
+        // return redirect()->route("admin.projects.show", $newPost->id);
+        return redirect()->route("admin.projects.index");
+    }
     /**
      * Display the specified resource.
      */
@@ -52,7 +60,7 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(ProjectRequest $request, Project $project)
     {
         //
     }

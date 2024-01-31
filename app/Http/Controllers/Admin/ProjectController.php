@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-       $projects = Project::all();
+        $projects = Project::all();
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -44,9 +44,10 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(string $id)
     {
-        //
+        $project = Project::find($id);
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -70,6 +71,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index');
     }
 }

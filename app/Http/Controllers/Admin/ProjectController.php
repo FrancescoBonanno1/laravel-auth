@@ -6,13 +6,25 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
+use Illuminate\Support\Facades\Validator;
 
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
+    public function validation($data)
+     {
+
+        $validated = Validator::make($data, [
+            "name"=> "required|min:5|max:50",
+            "description"=> "required|min:5|max:300",
+            "image"=> "required|min:5|max:300",
+            "dataCreation"=> "required|min:5|max:100",
+            "language"=> "required|min:3|max:200",
+            ])->validate();
+
+            return $validated;
+    }  
     public function index()
     {
         $projects = Project::all();
@@ -55,7 +67,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -63,7 +75,17 @@ class ProjectController extends Controller
      */
     public function update(ProjectRequest $request, Project $project)
     {
-        //
+        {
+            $data =$request ->all();
+    
+            $dati_validati =$this->validation($data);
+    
+            $project->update($dati_validati);
+    
+            return redirect()->route('admin.projects.show', $project->id);
+    
+        }
+    
     }
 
     /**

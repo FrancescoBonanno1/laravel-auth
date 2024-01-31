@@ -16,7 +16,7 @@
                     <p class="card-text"><strong>Data creazione</strong> {{ $project->dataCreation }}</p>
                     <p class="card-text"><strong>Language</strong> {{ $project->language }}</p>
                     <span class="d-flex gap-2 ">
-                        <a href="" class="btn btn-primary ">Dettagli</a>
+                        <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-primary ">Dettagli</a>
                         <a href="" class="btn btn-warning ">Modifica</a>
                         <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST"
                             class="d-inline-block">

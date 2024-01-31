@@ -17,9 +17,10 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                   
-                  {{-- @foreach ($projects as $progetto)
-                      {{$progetto->name}}                  @endforeach --}}
+                    @foreach ($projects as $progetto)
+                      {{$progetto->name}}                 
+                      
+                    @endforeach
                     
 
                 </div>

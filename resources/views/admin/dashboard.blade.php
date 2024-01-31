@@ -18,8 +18,11 @@
                     </div>
                     @endif
                     @foreach ($projects as $progetto)
-                      {{$progetto->name}}                 
-                      
+                      <h2>{{$progetto->name}}</h2> 
+                      <h3>{{$progetto->description}}</h3>
+                      <img src="{{$progetto->image}}" alt="photo_animals">
+                      <p>{{$progetto->dataCreation}}</p>
+                      <span>{{$progetto->language}}</span> 
                     @endforeach
                     
 

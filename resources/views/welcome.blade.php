@@ -19,9 +19,28 @@
     </div>
 </div>
 
-<div class="content">
-    <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!</p>
+
+@section('content')
+<!--Section Card-->
+<div class="container">
+    <h1 class="text-center"><strong>Benvenuto</strong></h1>
+    <div class="row">
+        @foreach ($projects as $project)
+        <div class="col-3">
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="{{ $project->image }}" class="card-img-top " alt="..." style=" height: 23rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>{{ $project->name }} </strong></h5>
+                    <p class="card-text">{{ $project->description }}</p>
+                    <p class="card-text"><strong>Data creazione</strong> {{ $project->dataCreation }}</p>
+                    <p class="card-text"><strong>Language</strong> {{ $project->language }}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
     </div>
 </div>
+@endsection
+
 @endsection

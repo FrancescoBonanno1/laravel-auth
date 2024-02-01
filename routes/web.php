@@ -10,11 +10,12 @@ use App\Models\Project;
 
  Route::get('/', function () {
     $projects = Project ::all();
-    return view('welcome' , compact("projects"),
+    return view('welcome' , compact("projects"),  
 
-        
-    );
+
+);
  });
+
 
  Route::middleware(['auth'])
  	->prefix('admin') //definisce il prefisso "admin/" per le rotte di questo gruppo
